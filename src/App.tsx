@@ -9,9 +9,9 @@ function App() {
   // const {volumeInfo} = items
   // console.log(items.volumeInfo)
   return (
-    <div className="xl:container mx-auto px-5   ">
+    <div className="xl:container mx-auto px-5 ">
       <Search />
-      <div className="xs:container mx-auto h-screen flex flex-wrap justify-around gap-0 items-center">
+      <div className="flex flex-wrap gap-5  justify-center  align-start">
         {items.map((elem) => {
           const { volumeInfo } = elem;
           return <Card card={volumeInfo} />;

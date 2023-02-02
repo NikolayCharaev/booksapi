@@ -2,19 +2,21 @@ import React, { FC, useState } from 'react';
 import { useAppSelector } from '../hooks/hooks';
 import { fetchBook } from '../redux/slices/bookSlice';
 import { useDispatch } from 'react-redux';
-import { AppDispatch, RootState } from '../redux/store';
-import Card from './Card';
+import { AppDispatch } from '../redux/store';
 
 const Search: FC = () => {
   const [value, setValue] = useState('');
   const dispatch = useDispatch<AppDispatch>();
-
   const loading = useAppSelector((state) => state.bookSlice.loading);
 
-
   return (
-    <div className={loading === 'succeeded' ? 'hidden' : 'max-w-xl text-white mx-auto h-screen my-auto grid content-center'}>
-      { (
+    <div
+      className={
+        loading === 'succeeded'
+          ? 'hidden'
+          : 'max-w-xl text-white mx-auto h-screen my-auto grid content-center'
+      }>
+      {
         <form>
           <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
             Search
@@ -56,7 +58,7 @@ const Search: FC = () => {
             </button>
           </div>
         </form>
-      )}
+      }
     </div>
   );
 };
