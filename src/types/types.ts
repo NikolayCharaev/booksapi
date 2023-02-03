@@ -11,6 +11,9 @@ export interface BookCardPropsImages {
   smallThumbnail: string;
   thumbnail: string;
 }
+export interface SearchInfoBook { 
+    textSnippet: string
+}
 
 export interface BookCardProps {
   language: string;
@@ -21,5 +24,5 @@ export interface BookCardProps {
   authors: [];
   description: string;
   imageLinks: BookCardPropsImages;
-  
+  searchInfo: SearchInfoBook
 }
