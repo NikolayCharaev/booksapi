@@ -13,7 +13,7 @@ interface CardProps {
 const Card: FC<PropsWithChildren<CardProps>> = ({ card, children }) => {
   const items = useAppSelector((state) => state.bookSlice.items);
   return (
-    <div sx={{}} >
+    <div >
     </div>
   );
 };
