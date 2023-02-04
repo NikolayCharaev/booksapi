@@ -1,5 +1,4 @@
 import { Box, Container } from '@mui/material';
-import TestTransition from './components/TestTransition';
 
 import Modal from './components/Modal/Modal'
 function App() {
