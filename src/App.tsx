@@ -1,11 +1,8 @@
 import { Box, Container } from '@mui/material';
-import Test from './components/Test';
+import TestTransition from './components/TestTransition';
 
+import Modal from './components/Modal/Modal'
 function App() {
-
-
-
-
   return (
     <Box
       sx={{
@@ -15,10 +12,10 @@ function App() {
         height: '100vh',
         color: 'white',
         fontFamily: 'Roboto, sans-serif',
-        fontSize: '18px'
+        fontSize: '18px',
       }}>
       <Container maxWidth="xl">
-        <Test/>
+      <Modal/>
       </Container>
     </Box>
   );
