@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Transition } from 'react-transition-group';
 import { Box, Typography, TextField, Button } from '@mui/material';
+import { fetchBook } from '../../redux/slices/bookSlice';
+import { useAppSelector } from '../../hooks/hooks';
+
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../redux/store';
 
 import './modalStyle.scss';
 const Modal = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const [value, setValue] = useState('');
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  const items = useAppSelector((state) => state.bookSlice.items);
+  const loadingState = useAppSelector((state) => state.bookSlice.loading);
+
   useEffect(() => {
-    setTimeout(() => setModalVisible(true), 1000);
+    setTimeout(() => setModalVisible(true), 500);
     // setTimeout(() => setModalVisible(false), 5000);
   }, []);
 
@@ -50,7 +61,10 @@ const Modal = () => {
               <Button
                 disabled={value.length <= 0}
                 variant="contained"
-                onClick={hideModalVisible}
+                onClick={() => {
+                  dispatch(fetchBook(value));
+                  hideModalVisible();
+                }}
                 sx={{ padding: '14px', marginLeft: '5px' }}>
                 найти
               </Button>
@@ -66,7 +80,7 @@ const Modal = () => {
                   textAlign: 'center',
                   marginTop: '20px',
                 }}>
-                загрузка данных...
+                {loadingState === 'failed' ? 'произошла ошибка' : 'загрузка данных...'}
               </Typography>
             )}
           </Box>

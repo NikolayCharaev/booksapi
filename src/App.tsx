@@ -1,7 +1,10 @@
 import { Box, Container } from '@mui/material';
+import { useAppSelector } from './hooks/hooks';
+import CardItem from './components/Card/CardItem';
+import Modal from './components/Modal/Modal';
 
-import Modal from './components/Modal/Modal'
 function App() {
+  const items = useAppSelector((state) => state.bookSlice.items);
   return (
     <Box
       sx={{
@@ -14,7 +17,10 @@ function App() {
         fontSize: '18px',
       }}>
       <Container maxWidth="xl">
-      <Modal/>
+        {!items.length && <Modal />}
+        {items.length > 0 ? items.map((item: any) => (
+          <CardItem card={item.volumeInfo} />
+        )) : ''}
       </Container>
     </Box>
   );
