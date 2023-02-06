@@ -15,7 +15,7 @@ const Modal = () => {
 
   const dispatch = useDispatch<AppDispatch>();
 
-  const items = useAppSelector((state) => state.bookSlice.items);
+
   const loadingState = useAppSelector((state) => state.bookSlice.loading);
 
   useEffect(() => {

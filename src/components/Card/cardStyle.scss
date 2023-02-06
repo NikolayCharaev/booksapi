@@ -1,0 +1,22 @@
+@keyframes show-card {
+  0% {
+    opacity: 0;
+  }
+//   50% {
+//     opacity: .5;
+//   }
+  100% {
+    opacity: 1;
+    // transform: translateY(200px);
+  }
+}
+
+.card {
+  transition: all 1s linear;
+}
+.card.entering {
+  animation: show-card 1s forwards;
+}
+.card.exiting {
+  opacity: 0;
+}
