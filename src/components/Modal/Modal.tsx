@@ -40,7 +40,7 @@ const Modal = () => {
       }}>
       <Transition in={modalVisible} timeout={500} mountOnEnter unmountOnExit>
         {(state) => (
-          <Box className={`modal ${state}`}>
+          <Box className={`modal ${state}`} sx={{padding: '20px'}}>
             <Typography
               variant="h5"
               sx={{ color: 'black', textAlign: 'center', marginTop: '20px' }}>

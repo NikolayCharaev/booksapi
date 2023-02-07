@@ -36,7 +36,7 @@ function App() {
         fontFamily: 'Roboto, sans-serif',
         fontSize: '18px',
       }}>
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" sx={{ display: 'flex', justifyContent: 'center' }}>
         {!items.length && <Modal />}
         <Box
           sx={{
