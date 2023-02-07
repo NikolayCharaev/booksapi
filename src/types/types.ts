@@ -5,6 +5,8 @@ export interface ISearch {
 export interface IBook {
   items: [];
   loading: 'idle' | 'pending' | 'succeeded' | 'failed';
+  bookLoading: string
+  item: []
 }
 
 export interface BookCardPropsImages {

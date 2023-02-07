@@ -19,7 +19,7 @@ import './cardStyle.scss';
 
 interface CardProps {
   card?: BookCardProps;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const CardItem = ({ card, onClick }: CardProps) => {

@@ -1,12 +1,18 @@
 import { useState, useEffect } from 'react';
 import { Box, Container } from '@mui/material';
 import { useAppSelector } from './hooks/hooks';
-import { Transition } from 'react-transition-group';
 import CardItem from './components/Card/CardItem';
 import Modal from './components/Modal/Modal';
 
+import { fetchBook } from './redux/slices/bookSlice';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from './redux/store';
+// import BookItem from './components/Book/BookItem';
+
 function App() {
+  const dispatch = useDispatch<AppDispatch>();
   const items = useAppSelector((state) => state.bookSlice.items);
+  const book = useAppSelector((state) => state.bookSlice.item);
 
   const [cardVisible, setCardVisible] = useState(false);
 
@@ -50,13 +56,14 @@ function App() {
             ? items.map((item: any, key: number) => (
                 <CardItem
                   onClick={() => {
-                    console.log(item.id);
+                    dispatch(fetchBook(item.id));
                   }}
                   key={key}
                   card={item.volumeInfo}
                 />
               ))
             : ''}
+
         </Box>
       </Container>
     </Box>

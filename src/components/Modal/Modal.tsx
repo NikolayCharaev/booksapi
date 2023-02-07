@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Transition } from 'react-transition-group';
 import { Box, Typography, TextField, Button } from '@mui/material';
-import { fetchBook } from '../../redux/slices/bookSlice';
+import { fetchBooks } from '../../redux/slices/bookSlice';
 import { useAppSelector } from '../../hooks/hooks';
 
 import { useDispatch } from 'react-redux';
@@ -61,7 +61,7 @@ const Modal = () => {
                 disabled={value.length <= 0}
                 variant="contained"
                 onClick={() => {
-                  dispatch(fetchBook(value));
+                  dispatch(fetchBooks(value));
                   hideModalVisible();
                 }}
                 sx={{ padding: '14px', marginLeft: '5px' }}>
