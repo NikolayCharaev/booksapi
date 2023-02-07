@@ -19,9 +19,10 @@ import './cardStyle.scss';
 
 interface CardProps {
   card?: BookCardProps;
+  onClick: () => void;
 }
 
-const CardItem = ({ card }: CardProps) => {
+const CardItem = ({ card, onClick }: CardProps) => {
   const items = useAppSelector((state) => state.bookSlice.items);
 
   useEffect(() => {
@@ -38,6 +39,7 @@ const CardItem = ({ card }: CardProps) => {
       {(state) => (
         <Box
           className={`card ${state}`}
+          onClick={onClick}
           sx={{
             display: 'flex',
           }}>

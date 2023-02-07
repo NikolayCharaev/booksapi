@@ -20,7 +20,6 @@ const Modal = () => {
 
   useEffect(() => {
     setTimeout(() => setModalVisible(true), 500);
-    // setTimeout(() => setModalVisible(false), 5000);
   }, []);
 
   function hideModalVisible() {
@@ -39,7 +38,7 @@ const Modal = () => {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <Transition in={modalVisible} timeout={1000} mountOnEnter unmountOnExit>
+      <Transition in={modalVisible} timeout={500} mountOnEnter unmountOnExit>
         {(state) => (
           <Box className={`modal ${state}`}>
             <Typography

@@ -24,10 +24,15 @@ function App() {
         backgroundImage:
           'url(https://images.wallpaperscraft.ru/image/single/kniga_girlianda_svet_134006_1920x1080.jpg)',
         objectFit: 'cover',
+        backgroundSize: 'cover',
+        paddingBottom: '50px',
 
         width: '100%',
         height: '100vh',
+        // minHeight: '100vh',
+        overflow: 'scroll',
         color: 'white',
+        backgroundRepeat: 'no-repeat',
         fontFamily: 'Roboto, sans-serif',
         fontSize: '18px',
       }}>
@@ -41,7 +46,17 @@ function App() {
             paddingTop: '50px',
             justifyContent: 'center',
           }}>
-          {items.length > 0 ? items.map((item: any) => <CardItem card={item.volumeInfo} />) : ''}
+          {items.length > 0
+            ? items.map((item: any, key: number) => (
+                <CardItem
+                  onClick={() => {
+                    console.log(item.id);
+                  }}
+                  key={key}
+                  card={item.volumeInfo}
+                />
+              ))
+            : ''}
         </Box>
       </Container>
     </Box>
