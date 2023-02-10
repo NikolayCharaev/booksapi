@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Box, Container } from '@mui/material';
+import { Box, Container, Button } from '@mui/material';
 
 import CardItem from './components/Card/CardItem';
 import Modal from './components/Modal/Modal';
@@ -14,6 +14,10 @@ import * as style from './styles/appStyles';
 
 import BookItem from './components/Book/BookItem';
 import { BookCardProps } from './types/types';
+
+import { setModalVisible } from './redux/slices/bookSlice';
+
+
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -36,6 +40,11 @@ function App() {
       <Container maxWidth="xl" sx={style.appContainerStyle}>
         <Modal />
         <Box sx={style.appBoxStyle}>
+          {items.length > 0 ? (
+            <Button variant="contained" sx={{ position: 'absolute', top: '20px', right: '40px' }} onClick={() => dispatch(setModalVisible(true))}>
+              новый поиск
+            </Button>
+          ) : ''}
           {items.length > 0
             ? items.map((item: any, key: number) => (
                 <CardItem

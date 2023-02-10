@@ -19,6 +19,7 @@ interface BookSliceProps {
   loading: string;
   bookLoading: string;
   item: {};
+  modalVisible: boolean;
 }
 
 const initialState: BookSliceProps = {
@@ -26,6 +27,7 @@ const initialState: BookSliceProps = {
   loading: 'idle',
   bookLoading: 'idle',
   item: {},
+  modalVisible: false,
 };
 
 export const BookSlice = createSlice({
@@ -35,6 +37,9 @@ export const BookSlice = createSlice({
     closeBookItem: (state) => {
       state.bookLoading = 'pending';
       state.item = {};
+    },
+    setModalVisible: (state, action) => {
+      state.modalVisible = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -65,5 +70,5 @@ export const BookSlice = createSlice({
     });
   },
 });
-export const { closeBookItem } = BookSlice.actions;
+export const { closeBookItem, setModalVisible } = BookSlice.actions;
 export default BookSlice.reducer;

@@ -39,3 +39,13 @@ export const bookItemBox = {
   borderRadius: '5px',
   height: '700px',
 };
+
+
+export const modalCenter = { 
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    zIndex: '100'
+}

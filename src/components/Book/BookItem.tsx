@@ -88,7 +88,7 @@ const BookItem: FC<CardProps> = ({ book }) => {
           </CardActionArea>
         </Card>
         <Box sx={{ height: minHeightBookBlock, overflow: 'scroll' }}>
-          <Typography variant="h6" color={'white'} sx={{ marginLeft: '10px' }}>
+          <Typography variant="h6" color={'white'} sx={{ marginLeft: '10px', fontSize: '1.4rem' }}>
             {book.description
               ? new DOMParser().parseFromString(book.description, 'text/html').body.textContent
               : ''}
@@ -100,7 +100,7 @@ const BookItem: FC<CardProps> = ({ book }) => {
           подробнее
         </Button>
         <Button variant="contained" onClick={() => dispatch(closeBookItem())}>
-            закрыть
+          закрыть
         </Button>
       </Box>
     </Container>

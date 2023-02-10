@@ -19,6 +19,8 @@ export interface SearchInfoBook {
 
 export interface BookCardProps {
   language: string;
+  id: string,
+  volumeInfo: {}
   title: string;
   publishedDate: string;
   categories: [];
