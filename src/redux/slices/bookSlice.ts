@@ -31,7 +31,12 @@ const initialState: BookSliceProps = {
 export const BookSlice = createSlice({
   name: 'book',
   initialState,
-  reducers: {},
+  reducers: {
+    closeBookItem: (state) => {
+      state.bookLoading = 'pending';
+      state.item = {};
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchBooks.pending, (state) => {
       state.loading = 'pending';
@@ -60,5 +65,5 @@ export const BookSlice = createSlice({
     });
   },
 });
-
+export const { closeBookItem } = BookSlice.actions;
 export default BookSlice.reducer;

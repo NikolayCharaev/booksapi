@@ -7,9 +7,13 @@ import {
   CardMedia,
   CardContent,
   Typography,
+  Button,
 } from '@mui/material';
 import { BookCardProps } from '../../types/types';
 import { useAppSelector } from '../../hooks/hooks';
+
+import { closeBookItem } from '../../redux/slices/bookSlice';
+import { useDispatch } from 'react-redux';
 
 import { bookItemBox } from '../../styles/appStyles';
 import { text } from 'stream/consumers';
@@ -22,6 +26,7 @@ interface CardProps {
 const minHeightBookBlock: string = '476px';
 
 const BookItem: FC<CardProps> = ({ book }) => {
+  const dispatch = useDispatch();
   return (
     <Container maxWidth="md" sx={bookItemBox}>
       <Typography sx={{ textAlign: 'center', marginBottom: '50px' }} variant="h6">
@@ -84,9 +89,19 @@ const BookItem: FC<CardProps> = ({ book }) => {
         </Card>
         <Box sx={{ height: minHeightBookBlock, overflow: 'scroll' }}>
           <Typography variant="h6" color={'white'} sx={{ marginLeft: '10px' }}>
-            {book.description ? new DOMParser().parseFromString(book.description,'text/html').body.textContent : ''}
+            {book.description
+              ? new DOMParser().parseFromString(book.description, 'text/html').body.textContent
+              : ''}
           </Typography>
         </Box>
+      </Box>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '40px' }}>
+        <Button variant="contained" href={book.previewLink} target="_blank">
+          подробнее
+        </Button>
+        <Button variant="contained" onClick={() => dispatch(closeBookItem())}>
+            закрыть
+        </Button>
       </Box>
     </Container>
   );
