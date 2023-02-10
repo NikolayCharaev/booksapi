@@ -13,13 +13,17 @@ const Modal = () => {
   const [loading, setLoading] = useState(false);
   const [value, setValue] = useState('');
 
+  const items = useAppSelector((state) => state.bookSlice.items);
+
   const dispatch = useDispatch<AppDispatch>();
 
-
   const loadingState = useAppSelector((state) => state.bookSlice.loading);
+  const modalVisibleStart = () => {
+    return setTimeout(() => setModalVisible(true), 500);
+  };
 
   useEffect(() => {
-    setTimeout(() => setModalVisible(true), 500);
+    modalVisibleStart();
   }, []);
 
   function hideModalVisible() {
@@ -32,7 +36,7 @@ const Modal = () => {
   return (
     <Box
       sx={{
-        display: 'flex',
+        display: items.length > 0 ? 'none' : 'flex',
         width: '78vw',
         height: '100vh',
         justifyContent: 'center',
@@ -40,7 +44,7 @@ const Modal = () => {
       }}>
       <Transition in={modalVisible} timeout={500} mountOnEnter unmountOnExit>
         {(state) => (
-          <Box className={`modal ${state}`} sx={{padding: '20px'}}>
+          <Box className={`modal ${state}`} sx={{ padding: '20px' }}>
             <Typography
               variant="h5"
               sx={{ color: 'black', textAlign: 'center', marginTop: '20px' }}>

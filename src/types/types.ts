@@ -5,8 +5,8 @@ export interface ISearch {
 export interface IBook {
   items: [];
   loading: 'idle' | 'pending' | 'succeeded' | 'failed';
-  bookLoading: string
-  item: []
+  bookLoading: string;
+  item: [];
 }
 
 export interface BookCardPropsImages {
@@ -18,13 +18,13 @@ export interface SearchInfoBook {
 }
 
 export interface BookCardProps {
-    language: string;
-    title: string;
-    publishedDate: string;
-    categories: [];
-    previewLink: string;
-    authors: [];
-    description: string;
-    imageLinks: BookCardPropsImages;
-    searchInfo: SearchInfoBook;
+  language: string;
+  title: string;
+  publishedDate: string;
+  categories: [];
+  previewLink: string;
+  authors: [];
+  description: string;
+  imageLinks: BookCardPropsImages;
+  searchInfo: SearchInfoBook;
 }

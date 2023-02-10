@@ -1,19 +1,9 @@
-import React, { FC, PropsWithChildren, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAppSelector } from '../../hooks/hooks';
 import { BookCardProps } from '../../types/types';
 import { Transition } from 'react-transition-group';
 
-import {
-  Card,
-  CardActions,
-  CardContent,
-  Button,
-  Typography,
-  CardMedia,
-  Container,
-  Box,
-  CardActionArea,
-} from '@mui/material';
+import { Card, CardContent, Typography, CardMedia, Box, CardActionArea } from '@mui/material';
 
 import './cardStyle.scss';
 
