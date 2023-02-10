@@ -26,6 +26,7 @@ interface CardProps {
 const minHeightBookBlock: string = '476px';
 
 const BookItem: FC<CardProps> = ({ book }) => {
+  const items = useAppSelector((state) => state.bookSlice.items);
   const dispatch = useDispatch();
   return (
     <Container maxWidth="md" sx={bookItemBox}>

@@ -62,12 +62,12 @@ const Modal = () => {
               sx={{ color: 'black', textAlign: 'center', marginTop: '20px' }}>
               Читай и наслаждайся :)
             </Typography>
-            <Button
+           {items.length > 0 ? (<Button
               variant="contained"
               sx={{ position: 'absolute', top: '10px', right: '10px' }}
               onClick={() => dispatch(setModalVisible(false))}>
               закрыть
-            </Button>
+            </Button>) : ''}
             <Box sx={{ marginTop: '120px', display: 'flex', justifyContent: 'center' }}>
               <TextField
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
