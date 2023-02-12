@@ -16,7 +16,6 @@ import { closeBookItem } from '../../redux/slices/bookSlice';
 import { useDispatch } from 'react-redux';
 
 import { bookItemBox } from '../../styles/appStyles';
-import { text } from 'stream/consumers';
 
 interface CardProps {
   book?: any;

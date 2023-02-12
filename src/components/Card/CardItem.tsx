@@ -3,7 +3,15 @@ import { useAppSelector } from '../../hooks/hooks';
 import { BookCardProps } from '../../types/types';
 import { Transition } from 'react-transition-group';
 
-import { Card, CardContent, Typography, CardMedia, Box, CardActionArea } from '@mui/material';
+import {
+  Card,
+  CardContent,
+  Typography,
+  CardMedia,
+  Box,
+  CardActionArea,
+  Stack,
+} from '@mui/material';
 
 import './cardStyle.scss';
 
@@ -27,19 +35,14 @@ const CardItem = ({ card, onClick }: CardProps) => {
   return (
     <Transition in={cardVisible} timeout={1000} mountOnEnter unmountOnExit>
       {(state) => (
-        <Box
-          className={`card ${state}`}
-          onClick={onClick}
-          sx={{
-            display: 'flex',
-          }}>
-          <Card sx={{ maxWidth: 270, minWidth: '270px' }}>
+        <Stack className={`card ${state}`} onClick={onClick} direction="row">
+          <Card sx={{ maxWidth: '270px' }}>
             <CardActionArea sx={{ height: '100%' }}>
               <CardMedia
                 sx={{ objectFit: 'cover', width: '100%' }}
                 component="img"
                 height="220"
-                image={card?.imageLinks.thumbnail}
+                image={card?.imageLinks ? card?.imageLinks.thumbnail : 'нет картинки'}
                 alt="#"
               />
               <CardContent>
@@ -55,7 +58,7 @@ const CardItem = ({ card, onClick }: CardProps) => {
               </CardContent>
             </CardActionArea>
           </Card>
-        </Box>
+        </Stack>
       )}
     </Transition>
   );

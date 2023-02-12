@@ -41,7 +41,7 @@ function App() {
         <Modal />
         <Box sx={style.appBoxStyle}>
           {items.length > 0 ? (
-            <Button variant="contained" sx={{ position: 'absolute', top: '20px', right: '40px' }} onClick={() => dispatch(setModalVisible(true))}>
+            <Button variant="contained" sx={{ position: 'absolute', top: '20px', right: '40px', zIndex: '100'}} onClick={() => dispatch(setModalVisible(true))}>
               новый поиск
             </Button>
           ) : ''}
