@@ -36,6 +36,13 @@ const Modal = () => {
     }, 1000);
   }
 
+  function handleSearch(e: any) {
+    if ((e.key === 'Enter' && value.length > 0)) {
+      dispatch(fetchBooks(value));
+      dispatch(setModalVisible(false))
+    }
+  }
+
   return (
     <Box
       // sx={{
@@ -62,12 +69,16 @@ const Modal = () => {
               sx={{ color: 'black', textAlign: 'center', marginTop: '20px' }}>
               Читай и наслаждайся :)
             </Typography>
-           {items.length > 0 ? (<Button
-              variant="contained"
-              sx={{ position: 'absolute', top: '10px', right: '10px' }}
-              onClick={() => dispatch(setModalVisible(false))}>
-              закрыть
-            </Button>) : ''}
+            {items.length > 0 ? (
+              <Button
+                variant="contained"
+                sx={{ position: 'absolute', top: '10px', right: '10px' }}
+                onClick={() => dispatch(setModalVisible(false))}>
+                закрыть
+              </Button>
+            ) : (
+              ''
+            )}
             <Box sx={{ marginTop: '120px', display: 'flex', justifyContent: 'center' }}>
               <TextField
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,6 +89,7 @@ const Modal = () => {
                 label="поиск книги..."
                 variant="outlined"
                 sx={{ width: '80%' }}
+                onKeyPress={handleSearch}
               />
               <Button
                 disabled={value.length <= 0}
